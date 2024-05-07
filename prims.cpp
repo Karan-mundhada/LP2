@@ -7,9 +7,11 @@ class graph
 {
 public:
     vector<vector<int>> grap;
-    graph(int n)
+    int n;
+    graph(int no)
     {
         grap.resize(n, vector<int>(n, 0));
+        n = no;
     }
     void create(int s, int d, int w)
     {
@@ -31,7 +33,6 @@ public:
     }
     void prims(int start)
     {
-        int n = grap.size();
         vector<int> dist(n, INT_MAX);
         vector<bool> vis(n, false);
         vector<int> parent(n, -1);

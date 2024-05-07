@@ -1,0 +1,109 @@
+public class Calculator {
+    public Integer a { get; set; }
+    public Integer b { get; set; }
+    
+    public Calculator(Integer aval, Integer bval) {
+        a = aval;
+        b = bval;
+    }
+    
+    public void add() {
+        Integer sum = a + b;
+        System.debug('Sum: ' + sum);
+    }
+    
+    public void div() {
+        if (b != 0) {
+            Decimal divi = (Decimal) a / (Decimal) b;
+            System.debug('Division: ' + divi);
+        } else {
+            System.debug('Divide by zero error!');
+        }
+    }
+    
+    public void power() {
+        Double powe = Math.pow(a, b);
+        System.debug('Power: ' + powe);
+    }
+}
+
+public class Marksheet { 
+    public static void Mark(string student, Map<String, Integer> mk) {
+        system.debug('Student name : '+student);
+        for(string i :Mk.keyset())
+        {
+            system.debug('Subject : '+i+' Marks : '+mk.get(i));
+        }
+        Integer tot = 0;
+        Integer subj = mk.size();
+        for (Integer i : mk.values()) {
+            tot += i;
+        }
+        System.debug('Total: ' + tot);
+        Decimal perc = ((decimal)tot / (subj * 100)) * 100;
+        System.debug('Percentage: ' + perc + '%');
+                
+    }
+}
+
+public class Greatest3 {
+public static void g3(integer a,integer b,integer c)
+	{
+        if(a>b && b>c)
+        {
+            system.debug('Greatest : '+a);
+        }
+        else if(b>c && c>a){
+            system.debug('Greatest : '+b);
+        }
+        else{
+            system.debug('Greatest : '+c);
+        }
+	}
+}
+
+public class ElectricityBill {
+	public static void EB(integer units)
+    {
+        decimal cost=0;
+        if(units<100)
+        {
+            cost=units*1.5;
+        }
+        else if(units<300)
+        {
+            cost=100*1.5+(units-100)*2;
+        }
+        else
+        {
+            cost=100*1.5+200*2+(units-300)*3;
+        }
+        
+        system.debug('Bill : '+cost);
+    }
+}
+
+public class Celsiustofarenheit {
+    public static void ctf(decimal celsius)
+    {
+        decimal converted=0;
+        converted=(decimal)celsius*9/5+32;
+        system.debug('Converted value :'+converted);
+    }
+    public static void ftc(decimal farenheit)
+    {
+        double conv=0;
+        conv=(decimal)((farenheit-32)*5/9);
+        system.debug('Conv value : '+conv);
+    }
+}
+
+
+public class currencyCOnv {
+    public static void cc(decimal money,decimal rate)
+    {
+        double conv=0;
+        conv=money*rate;
+        system.debug('Converted value : '+conv);
+    }
+}
