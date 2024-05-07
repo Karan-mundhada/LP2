@@ -7,12 +7,14 @@ class Graph
 {
     public:
     vector<vector<int>> graph;
-    void create(int n,int s,int d,int w)
+    Graph(int n)
     {
-        graph.resize(n,vector<int>(n,0));
-
-        graph[s][d]=w;
-        graph[d][s]=w;
+        graph.resize(n, vector<int>(n, 0));
+    }
+    void create(int s, int d, int w)
+    {
+        graph[s][d] = w;
+        graph[d][s] = w;
     }
 
     int minvertex(vector<int> distance,vector<int> djik)
@@ -60,16 +62,16 @@ class Graph
 };
 
 int main(){
-    Graph g;
     cout<<"enter vertices and  edges"<<endl;
     int v,e;
     cin>>v>>e;
+    Graph g(v);
     for(int i=0;i<e;i++)
     {
         cout<<"ENter s,d,w"<<endl;
         int s,d,w;
         cin>>s>>d>>w;
-        g.create(v,s,d,w);
+        g.create(s,d,w);
             }
     g.djikstra(0);
     return 0;
