@@ -108,6 +108,6 @@ int main()
     // printBoard(chessBoard, n);
     bool flag = false;
 
-    cout<<"Solutions for n == "<<n<<" is :-\n";
+    cout<<"Here are the Solutions for n = "<<n<<endl;
     solveQueens(chessBoard, cols, n , flag);
 }

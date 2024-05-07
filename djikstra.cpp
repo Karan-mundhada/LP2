@@ -53,10 +53,10 @@ class Graph
 
         }
         cout<<"Distance of each vertex from source "<<endl;
-        cout<<"Vertex\t\t\t"<<"Distance"<<endl;
+        cout<<"Vertex\t"<<"Distance"<<endl;
         for(int i=0;i<dist.size();i++)
         {
-            cout<<i<<" "<<dist[i]<<endl;
+            cout<<i<<"   \t"<<dist[i]<<endl;
         }
     }
 };

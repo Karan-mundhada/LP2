@@ -8,19 +8,19 @@ def ask_question(question: str) -> bool:
 
 
 def diagnose_allergies() -> bool:
-    return ask_question("Do you experience any itching or swelling?") or ask_question(
+    return ask_question("Do you experience any itching or swelling?") and ask_question(
         "Do you have red, watery eyes?"
     )
 
 
 def diagnose_fever() -> bool:
-    return ask_question("Do you have a temperature above 37.5°C?") or ask_question(
+    return ask_question("Do you have a temperature above 37.5°C?") and ask_question(
         "Do you experience chills?"
     )
 
 
 def diagnose_cold() -> bool:
-    return ask_question("Do you have a runny or stuffy nose?") or ask_question(
+    return ask_question("Do you have a runny or stuffy nose?") and ask_question(
         "Are you sneezing frequently?"
     )
 
