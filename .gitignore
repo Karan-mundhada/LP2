@@ -1,0 +1,5 @@
+*.class
+*.exe
+
+# Ignore `bin` dir
+bin/
