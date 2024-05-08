@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printBoard(vector<vector<string>> &chessBoard, int n)
+void printBoard(vector<vector<string>> &answers, int n)
 {
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            cout << chessBoard[i][j] << "   \n";
+            cout << answers[i][j] << "   \n";
         }
         cout << endl;
     }
@@ -15,14 +15,14 @@ void printBoard(vector<vector<string>> &chessBoard, int n)
     cout << "------------------------" << endl;
 }
 
-bool check(vector<string> pp, int i, int j, int n)
+bool check(vector<string> chessboard, int i, int j, int n)
 {
     // left diagonal
     int row = i;
     int col = j;
     while (row >= 0 && col >= 0)
     {
-        if (pp[row][col] == 'Q')
+        if (chessboard[row][col] == 'Q')
             return false;
         row--;
         col--;
@@ -33,7 +33,7 @@ bool check(vector<string> pp, int i, int j, int n)
     col = j;
     while (row >= 0)
     {
-        if (pp[row][col] == 'Q')
+        if (chessboard[row][col] == 'Q')
             return false;
         row--;
     }
@@ -43,7 +43,7 @@ bool check(vector<string> pp, int i, int j, int n)
     col = j;
     while (row >= 0 && col < n)
     {
-        if (pp[row][col] == 'Q')
+        if (chessboard[row][col] == 'Q')
             return false;
         row--;
         col++;
@@ -51,40 +51,41 @@ bool check(vector<string> pp, int i, int j, int n)
 
     return true;
 }
-void pq(vector<vector<string>> &ans, vector<string> &pp, int nq /*no of rows filled*/, int n)
+void solve(vector<vector<string>> &ans, vector<string> &chessboard, int nq /*no of rows filled*/, int n)
 {
     if (nq == n)
     {
-        ans.push_back(pp);
+        ans.push_back(chessboard);
         return;
     }
     for (int i = 0; i < n; i++)
     {
-        if (check(pp, nq, i, n))
+        if (check(chessboard, nq, i, n))
         {
-            pp[nq][i] = 'Q';
-            pq(ans, pp, nq + 1, n);
-            pp[nq][i] = '-';
+            chessboard[nq][i] = 'Q';
+            solve(ans, chessboard, nq + 1, n);
+            chessboard[nq][i] = '-';
         }
     }
 }
 vector<vector<string>> solveNQueens(int n)
 {
     vector<vector<string>> ans;
-    vector<string> pp(n);
+    vector<string> chessboard(n);
     string s(n, '-');
     for (int i = 0; i < n; i++)
     {
-        pp[i] = s;
+        chessboard[i] = s;
     }
-    pq(ans, pp, 0, n);
+    solve(ans, chessboard, 0, n);
 
     return ans;
 }
 
 int main()
 {
-    int n = 4;
+    int n = 6;
+
     vector<vector<string>> ans = solveNQueens(n);
 
     printBoard(ans, n);
